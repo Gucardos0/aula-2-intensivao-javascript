@@ -1,65 +1,108 @@
-const imagemVisualizacao = document.querySelector('#visualizacao img');
+
+const imagemVisualizacao = document.querySelector("#visualizacao img");
 const tituloProduto = document.querySelector("h1");
 const nomeCorSelecionada = document.querySelector("#nome-cor-selecionada");
 const imagemMiniatura0 = document.querySelector('[for="0-imagem"] img');
 const imagemMiniatura1 = document.querySelector('[for="1-imagem"] img');
 const imagemMiniatura2 = document.querySelector('[for="2-imagem"] img');
 
-const opcaoTamanho = ["41 mm", "45 mm"];
-const opcaoCor = ["Verde-Cipreste", "Azul-Inverno", "Meia-Noite", "Estelar", "Rosa-Claro"];
+
+
+const opcoesTamanho = ["41 mm", "45 mm"];
+const opcoesCores = [
+  "Verde-cipreste",
+  "Azul-inverno",
+  "Meia-noite",
+  "Estelar",
+  "Rosa-claro",
+];
+
+
 
 let numImagemSelecionada = 1;
 let numTamanhoSelecionado = 1;
-let numCorSelecionado = 1;
+let numCorSelecionada = 1;
 
-function atualizarImagemSelecionada(){
 
-    const opcaoImagemSelecionada = document.querySelector('input[name=opcao-imagem]:checked').id.charAt(0);
+function atualizarCorSelecionada() {
+  const opcaoCorSelecionada = document
+    .querySelector('[name="opcao-cor"]:checked')
+    .id.charAt(0); 
+  numCorSelecionada = opcaoCorSelecionada;
 
-    numImagemSelecionada = opcaoImagemSelecionada;
-    imagemVisualizacao.src = `/imagens/opcoes-cores/imagens-${opcaoCor[numCorSelecionado].toLowerCase()}/imagem-${numImagemSelecionada}.jpeg`;
-    
+  const nomeCor = opcoesCores[numCorSelecionada];
+
+  tituloProduto.innerText =
+    "Pulseira loop esportiva " +
+    nomeCor.toLowerCase() +
+    " para caixa de " +
+    opcoesTamanho[numTamanhoSelecionado];
+
+  nomeCorSelecionada.innerText = "Cor - " + nomeCor;
+
+  imagemVisualizacao.src =
+    "./imagens/opcoes-cores/imagens-" +
+    nomeCor.toLowerCase() +
+    "/imagem-" +
+    numImagemSelecionada +
+    ".jpeg";
+
+  imagemMiniatura0.src =
+    "./imagens/opcoes-cores/imagens-" +
+    nomeCor.toLowerCase() +
+    "/imagem-0.jpeg";
+
+  imagemMiniatura1.src =
+    "./imagens/opcoes-cores/imagens-" +
+    nomeCor.toLowerCase() +
+    "/imagem-1.jpeg";
+
+  imagemMiniatura2.src =
+    "./imagens/opcoes-cores/imagens-" +
+    nomeCor.toLowerCase() +
+    "/imagem-2.jpeg";
 }
 
-function atualizarTamanho(){
-    const tamanhoSelecionado = document.querySelector('[name=opcao-tamanho]:checked').id.charAt(0);
-    numTamanhoSelecionado = tamanhoSelecionado
+function atualizarTamanho() {
+  const opcaoTamanhoSelecionado = document
+    .querySelector('[name="opcao-tamanho"]:checked')
+    .id.charAt(0); // 0 ou 1 - 41 mm ou 45 mm
 
-    //mudar o titulo
-    const tamanhoCaixa = opcaoTamanho[tamanhoSelecionado]
-    
-     tituloProduto.innerText = `Pulseira loop esportiva ${opcaoCor[numCorSelecionado].toLowerCase()} para caixa de ${tamanhoCaixa}`;
+  numTamanhoSelecionado = opcaoTamanhoSelecionado;
 
-     //mudar o tamanho da imagem
-     if(tamanhoCaixa ==="41 mm"){
-        imagemVisualizacao.classList.add("caixa-pequena");
-     }else{
-        imagemVisualizacao.classList.remove("caixa-pequena")
-     }
-     
-}    
+  const tamanhoCaixa = opcoesTamanho[numTamanhoSelecionado];
 
-function atualizarCorSelecionada(){
-    
-    const opcaoCorSelecionada = document.querySelector('[name=opcao-cor]:checked').id.charAt(0)
-    numCorSelecionado = opcaoCorSelecionada;
+  console.log(tamanhoCaixa);
 
-    const nomeCor =opcaoCor[numCorSelecionado];
-    console.log(nomeCor);
+  //   console.log(opcaoTamanhoSelecionado);
 
-    // mudar o nome da cor
-    nomeCorSelecionada.innerText =  "Cor - " + nomeCor;
+  tituloProduto.innerText =
+    "Pulseira loop esportiva " +
+    opcoesCores[numCorSelecionada].toLowerCase() +
+    " para caixa de " +
+    tamanhoCaixa;
 
-    //muda o titulo
-    tituloProduto.innerText = `Pulseira loop esportiva ${nomeCor.toLowerCase()} para caixa de ${opcaoTamanho[numTamanhoSelecionado]}`;
-
-    imagemVisualizacao.src = `/imagens/opcoes-cores/imagens-${nomeCor.toLowerCase()}/imagem-${numImagemSelecionada}.jpeg`
-    
-    imagemMiniatura0.src = `/imagens/opcoes-cores/imagens-${nomeCor.toLowerCase()}/imagem-0.jpeg`
-    imagemMiniatura1.src = `/imagens/opcoes-cores/imagens-${nomeCor.toLowerCase()}/imagem-1.jpeg`
-    imagemMiniatura2.src = `/imagens/opcoes-cores/imagens-${nomeCor.toLowerCase()}/imagem-2.jpeg`
-    
+  if (tamanhoCaixa === "41 mm") {
+    imagemVisualizacao.classList.add("caixa-pequena");
+  } else {
+    imagemVisualizacao.classList.remove("caixa-pequena");
+  }
 }
 
+function atualizarImagemSelecionada() {
+  const opcaoImagemSelecionada = document
+    .querySelector('[name="opcao-imagem"]:checked')
+    .id.charAt(0);
 
+  numImagemSelecionada = opcaoImagemSelecionada;
+
+  //   console.log(opcaoImagemSelecionada);
+
+  imagemVisualizacao.src =
+    "./imagens/opcoes-cores/imagens-" +
+    opcoesCores[numCorSelecionada].toLowerCase() +
+    "/imagem-" +
+    numImagemSelecionada +
+    ".jpeg";
+}
 
