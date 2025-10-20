@@ -1,0 +1,207 @@
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "San Francisco";
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 48px;
+  font-size: 14px;
+}
+nav{
+  font-size: 13px;
+}
+
+li{
+  cursor: pointer;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    /* max-width: 1000px; */
+    /* margin: 0 auto; */
+    align-items: center;
+}
+
+ul{
+  list-style: none;
+}
+svg{
+  display: block;
+}
+h1{
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+main{
+  /* max-width: 1000px; */
+  /* margin: 0 auto; */
+  margin-bottom: 48px;
+}
+
+#produto{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+#precos{
+  font-size: 17.6px;
+}
+
+#a-vista,#parcelas,.pequeno{
+  font-size: 12.8px;
+}
+.cinza{
+  color: #6e6373;
+}
+#opcoes-produto{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+ 
+}
+
+a{
+  color:  #0066cc;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+
+#selo-carbono{
+      display: flex;
+    align-items: center;
+    gap: 4px;
+}
+#selo-carbono img{
+  width: 25px;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+ #selecao-cores label img{
+  width: 32px;
+  cursor: pointer;
+  mix-blend-mode: color;
+
+}
+
+#selecao-cores{
+  display: flex;
+  gap: 10px;
+}
+.cores{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="radio"]:checked + label{
+  border: solid 2px #0066cc;
+  border-radius: 50%;
+}
+#opcoes-tamanho input[type="radio"]:checked + label{
+   border: solid 2px #0066cc;
+}
+
+#selecionar-imagem input[type="radio"]:checked + label{
+  border-radius: 0;
+  border: none;
+  border-bottom: solid 2px #838085;
+}
+#selecao-cores label{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#opcoes{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#opcoes-tamanho label{
+  border: solid 1px black;
+  padding: 30px 50px;
+  border-radius: 16px;
+  font-size: 17.6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#opcoes-tamanho{
+  display: flex;
+  gap: 10px;
+}
+
+
+
+#info-estra, .comprar-depois, #tamanho-caixa{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entrega{
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.informacoes-entrega{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+button {
+  background-color: #0071e3;
+  color: white;
+  font-size: 17.6px;
+  border: none;
+  padding: 8px 35px;
+  align-self: start;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #057bf1;
+}
+
+ #selecionar-imagem label img{
+  width: 46px;
+  cursor: pointer;
+ }
+ #selecionar-imagem{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+
+ }
+
+ .caixa-pequena{
+ transform: scale(.9);
+ }
